@@ -17,6 +17,11 @@ export const authService = {
   guestLogin: async (data) => {
     const response = await axios.post(`${API_BASE_URL}/auth/guest`, data);
     return response.data;
+  },
+
+  googleLogin: async (data) => {
+    const response = await axios.post(`${API_BASE_URL}/auth/google`, data);
+    return response.data;
   }
 };
 
