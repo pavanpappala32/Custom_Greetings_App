@@ -2,6 +2,25 @@ import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
+
+export const authService = {
+  signup: async (data) => {
+    const response = await axios.post(`${API_BASE_URL}/auth/signup`, data);
+    return response.data;
+  },
+
+  login: async (data) => {
+    const response = await axios.post(`${API_BASE_URL}/auth/login`, data);
+    return response.data;
+  },
+
+  guestLogin: async (data) => {
+    const response = await axios.post(`${API_BASE_URL}/auth/guest`, data);
+    return response.data;
+  }
+};
+
+
 export const templateService = {
   getTemplates: async (category = null, isPremium = null) => {
     try {
