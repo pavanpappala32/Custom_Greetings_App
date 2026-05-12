@@ -8,14 +8,22 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (token) {
-      // Verify token and fetch user profile
-      verifyToken();
-    } else {
-      setLoading(false);
-    }
-  }, []);
+//   useEffect(() => {
+//     if (token) {
+//       // Verify token and fetch user profile
+//       verifyToken();
+//     } else {
+//       setLoading(false);
+//     }
+//   }, []);
+
+useEffect(() => {
+  if (token) {
+    verifyToken();
+  } else {
+    setLoading(false);
+  }
+}, [token]);
 
   const verifyToken = async () => {
     try {

@@ -5,7 +5,8 @@ import TemplateGrid from '../components/TemplateGrid';
 import '../styles/Home.css';
 
 const HomePage = () => {
-  const { user, token } = useContext(AuthContext);
+//   const { user, token } = useContext(AuthContext);
+const { user } = useContext(AuthContext);
   const [templates, setTemplates] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);

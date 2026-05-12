@@ -4,7 +4,8 @@ import { userService } from '../services/api';
 import '../styles/PremiumModal.css';
 
 const PremiumModal = ({ template, onClose, onSuccess }) => {
-  const { token, user, refreshUser } = useContext(AuthContext);
+//   const { token, user, refreshUser } = useContext(AuthContext);
+const { token, refreshUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
