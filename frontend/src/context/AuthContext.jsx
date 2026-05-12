@@ -17,12 +17,35 @@ export const AuthProvider = ({ children }) => {
 //     }
 //   }, []);
 
+// useEffect(() => {
+//   if (token) {
+//     verifyToken();
+//   } else {
+//     setLoading(false);
+//   }
+// }, [token]);
+
 useEffect(() => {
-  if (token) {
-    verifyToken();
-  } else {
-    setLoading(false);
-  }
+  const checkToken = async () => {
+    if (token) {
+      try {
+        const response = await axios.get('/api/users/profile', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.error('Token verification failed:', error);
+        localStorage.removeItem('token');
+        setToken(null);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setLoading(false);
+    }
+  };
+
+  checkToken();
 }, [token]);
 
   const verifyToken = async () => {
