@@ -18,10 +18,17 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Middleware
+// app.use(cors({
+//   origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: 'https://custom-greetings-app-hion.vercel.app',
   credentials: true
 }));
+
+
 //app.use(express.json());//
 console.log(
   path.resolve(__dirname, '../public/templates')
