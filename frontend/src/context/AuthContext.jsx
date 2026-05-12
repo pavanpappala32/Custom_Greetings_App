@@ -48,20 +48,20 @@ useEffect(() => {
   checkToken();
 }, [token]);
 
-  const verifyToken = async () => {
-    try {
-      const response = await axios.get('/api/users/profile', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setUser(response.data);
-    } catch (error) {
-      console.error('Token verification failed:', error);
-      localStorage.removeItem('token');
-      setToken(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+//   const verifyToken = async () => {
+//     try {
+//       const response = await axios.get('/api/users/profile', {
+//         headers: { Authorization: `Bearer ${token}` }
+//       });
+//       setUser(response.data);
+//     } catch (error) {
+//       console.error('Token verification failed:', error);
+//       localStorage.removeItem('token');
+//       setToken(null);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
 
   const loginWithGoogle = async (googleId, email, name, profilePicture) => {
     try {
